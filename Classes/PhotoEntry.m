@@ -29,13 +29,12 @@
 			[scale release];
 			[bitmap release];
 #endif
-		} else {
-#if __has_feature(objc_arc)
-			image = anImage;
-#else
-			image = [anImage retain];
-#endif
 		}
+#if __has_feature(objc_arc)
+        image = anImage;
+#else
+        image = [anImage retain];
+#endif
 	}
 	return self;
 }
